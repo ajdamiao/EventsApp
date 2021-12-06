@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">EventsApp</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_app_name">Lenz Events</string>
+    <string name="txt_details">Detalhes</string>
+    <string name="txt_location">Local</string>
+    <string name="txt_blank_shimmer">\n\n\n\n\n\n\n\n\n</string>
+    <string name="txt_share_event">Compartilhar Evento</string>
+    <string name="txt_check_in">Check-in</string>
+    <string name="txt_about">Sobre</string>
+    <string name="txt_detalhes">Detalhes</string>
+    <string name="txt_eventos">Eventos</string>
+    <string name="label_email">Email</string>
+    <string name="label_name">Nome</string>
+</resources>
