@@ -17,6 +17,7 @@ import com.example.eventsapp.databinding.FragmentEventDetailsBinding
 import com.example.eventsapp.exception.CustomException
 import com.example.eventsapp.model.CheckIn
 import com.example.eventsapp.model.EventDetail
+import com.example.eventsapp.util.Util
 import com.example.eventsapp.viewmodel.EventDetailViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.*
@@ -25,6 +26,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     private lateinit var binding: FragmentEventDetailsBinding
     private val eventDetailsViewModel : EventDetailViewModel by viewModels()
     private var popupInputDialogView: View? = null
+    private val util = Util()
     private var eventId = String()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,9 +68,8 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
                     val name: EditText = (popupInputDialogView.let { popupInputDialogView?.findViewById<View>(R.id.inputName) as EditText })
                     val email: EditText = (popupInputDialogView.let { popupInputDialogView?.findViewById<View>(R.id.inputEmail) as EditText })
 
-                    if(email.text.contains("@") && !(email.text.isNullOrEmpty()))
-                    {
-                        if (!name.text.isNullOrBlank() || !email.text.isNullOrBlank())  {
+                    if(util.isEmailValid(email.text.toString())) {
+                        if (util.isNameValid(name.text.toString()))  {
                             val postInfo = CheckIn(eventId, name.text.toString(), email.text.toString())
                             eventDetailsViewModel.checkInEvent(postInfo)
                         }
@@ -151,7 +152,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
                         dialogConfirmCheckIn()
                     }
                     else {
-                        dialogErroCheckIn()
+                        dialogErrorCheckIn()
                     }
                 }
 
@@ -180,7 +181,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
         }?.show()
     }
 
-    private fun dialogErroCheckIn()
+    private fun dialogErrorCheckIn()
     {
         context?.let {
             MaterialAlertDialogBuilder(it, R.style.AlertDialogThemeBenefit)
