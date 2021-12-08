@@ -36,7 +36,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun eventsResponse() {
-        homeViewModel.getEventReponse().observe(viewLifecycleOwner, { response ->
+        homeViewModel.getEventResponse().observe(viewLifecycleOwner, { response ->
             when(response) {
                 is ArrayList<Event> -> {
                     println(response)

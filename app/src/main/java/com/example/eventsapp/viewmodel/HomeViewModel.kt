@@ -13,10 +13,9 @@ class HomeViewModel: ViewModel() {
     private val apiRepository = SicrediRepository().makeRequest()
     private val eventsResponse: MutableLiveData<ArrayList<Event>> = MutableLiveData()
 
-    fun getEventReponse() : MutableLiveData<ArrayList<Event>> {
+    fun getEventResponse() : MutableLiveData<ArrayList<Event>> {
         return eventsResponse
     }
-
 
     fun getEvents() {
         CoroutineScope(Dispatchers.IO).launch {
