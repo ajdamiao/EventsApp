@@ -1,20 +1,14 @@
 package com.example.eventsapp.view.adapter
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.eventsapp.R
 import com.example.eventsapp.databinding.RviewEventsBinding
 import com.example.eventsapp.model.Event
-import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.ZoneId
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -26,7 +20,6 @@ class EventsAdapter(private val events: ArrayList<Event>) : RecyclerView.Adapter
         return EventsViewHolder(binding)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: EventsAdapter.EventsViewHolder, position: Int) {
         with(holder) {
             with(events[position]) {

@@ -7,7 +7,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="8dp"
+    android:elevation="@dimen/elevation"
     android:background="@drawable/toolbar_shape"
     app:title=" "
     app:navigationIcon="@drawable/ic_back"
@@ -21,7 +21,7 @@
         android:layout_gravity="start"
         android:text="@string/txt_eventos"
         android:textColor="@color/black"
-        android:textSize="21sp"
+        android:textSize="@dimen/text_toolbar"
         tools:layout_editor_absoluteX="173dp"
         tools:layout_editor_absoluteY="18dp" />
 </androidx.appcompat.widget.Toolbar>

@@ -9,7 +9,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/activityTitle"
         style="@style/Field.Input.Layout"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/match_constraints"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/label_name"
@@ -30,11 +30,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/userEmail"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/match_constraints"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        style="@style/Field.Input.Layout"
         android:layout_marginEnd="40dp"
+        style="@style/Field.Input.Layout"
         android:hint="@string/label_email"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,5 +49,4 @@
             android:inputType="textEmailAddress"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,6 @@ import com.example.eventsapp.databinding.FragmentHomeBinding
 import com.example.eventsapp.model.Event
 import com.example.eventsapp.viewmodel.HomeViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.example.eventsapp.MainActivity
 import com.example.eventsapp.R
 import com.example.eventsapp.view.adapter.EventsAdapter

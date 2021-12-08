@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class HomeViewModel: ViewModel() {
-    val apiRepository = SicrediRepository().makeRequest()
+    private val apiRepository = SicrediRepository().makeRequest()
     private val eventsResponse: MutableLiveData<ArrayList<Event>> = MutableLiveData()
 
     fun getEventReponse() : MutableLiveData<ArrayList<Event>> {

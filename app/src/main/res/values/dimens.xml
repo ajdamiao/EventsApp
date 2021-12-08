@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_toolbar">21dp</dimen>
+    <dimen name="text_small">12dp</dimen>
+    <dimen name="text_medium">16dp</dimen>
+    <dimen name="text_large">18dp</dimen>
+    <dimen name="elevation">8dp</dimen>
+    <dimen name="match_constraints">0dp</dimen>
+</resources>

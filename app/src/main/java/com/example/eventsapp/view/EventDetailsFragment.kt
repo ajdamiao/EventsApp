@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -80,7 +79,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
                     else {
                         invalidFieldDialog("É preciso colocar um email valido.")
                     }
-                    hideKeyboard()
+                    Util().hideKeyboard(requireContext(),requireView())
                 }.show()
         }
     }
@@ -97,7 +96,6 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     }
 
     private fun eventResponse() {
-
         eventDetailsViewModel.getEventDetailResponse().observe(viewLifecycleOwner, { response ->
             when(response) {
 
@@ -198,11 +196,5 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
         startActivity(Intent.createChooser(sharingIntent, "Share using"))
-    }
-
-    private fun hideKeyboard() {
-        activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
-        )
     }
 }

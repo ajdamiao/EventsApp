@@ -17,9 +17,9 @@
 
     <ImageView
         android:id="@+id/eventDetailsImage"
-        android:visibility="gone"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/match_constraints"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,18 +28,18 @@
 
     <ScrollView
         android:id="@+id/layoutDetails"
-        android:layout_height="match_parent"
-        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/match_constraints"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="124dp"
         android:layout_marginEnd="32dp"
+        android:visibility="gone"
         android:background="@drawable/shape_borders_scroll_view"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDetailsImage"
-        android:layout_width="match_parent">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
 
             <TextView
                 android:id="@+id/txtEventTitle"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_constraints"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -77,7 +77,7 @@
 
             <TextView
                 android:id="@+id/txtEventDateAndTime"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_constraints"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="4dp"
@@ -98,7 +98,7 @@
 
             <TextView
                 android:id="@+id/txtEventLocation"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_constraints"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="4dp"
@@ -129,7 +129,7 @@
 
             <View
                 android:id="@+id/view"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_constraints"
                 android:layout_height="2dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -147,14 +147,14 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/txt_about"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_large"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <TextView
                 android:id="@+id/txtAboutEvent"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_constraints"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
