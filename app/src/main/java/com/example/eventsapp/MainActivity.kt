@@ -2,6 +2,7 @@ package com.example.eventsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarInclude.toolbar)
@@ -28,6 +29,17 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.mainContent) as NavHostFragment
         navController = navHostFragment.navController
         setUpNavigation()
+        setToolbarVisibility()
+    }
+
+    private fun setToolbarVisibility() {
+        navController.addOnDestinationChangedListener { navController: NavController, nd: NavDestination, _: Bundle? ->
+            if (nd.id == R.id.splashFragment) {
+                supportActionBar?.hide()
+            } else {
+                supportActionBar?.show()
+            }
+        }
     }
 
     private fun setUpNavigation() {
