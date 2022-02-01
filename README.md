@@ -21,4 +21,4 @@ Na arquitetura usei a estrutura MVVM, referido pela Google como um modelo a ser 
 </span>
 
 # Demonstração
-![App Demo](https://s10.gifyu.com/images/app_gif.gif)
+![App Demo](https://s10.gifyu.com/images/app_gif.md.gif)
