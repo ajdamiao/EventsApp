@@ -160,7 +160,6 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
                         "Erro ao fazer check-in, tente novamente",
                         Toast.LENGTH_LONG
                     ).show()
-                    println("entrou response exception")
                 }
             }
         })

@@ -39,7 +39,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         homeViewModel.getEventResponse().observe(viewLifecycleOwner, { response ->
             when(response) {
                 is ArrayList<Event> -> {
-                    println(response)
                     setupCard(response) }
 
                 else -> errorDialog()

@@ -54,7 +54,6 @@ class EventDetailViewModel: ViewModel() {
                 val checkInResponse = apiRepository.checkInEvent(checkIn)
 
                 if(checkInResponse.code() != 200 || checkInResponse.code() != 204) {
-                    println("entrou no if view")
                     eventPostResponse.postValue(checkInResponse.isSuccessful)
                 }
             } catch (exception: Exception) {
