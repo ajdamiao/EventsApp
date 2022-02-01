@@ -19,6 +19,3 @@ Na arquitetura usei a estrutura MVVM, referido pela Google como um modelo a ser 
   
     Para fazer o carregamento das imagens optei por utilizar o Glide pois a própria Google a declarou como uma boa escolha para o carregamento de imagens.  
 </span>
-
-# Demonstração
-![App Demo](https://s10.gifyu.com/images/app_gif.gif)
