@@ -6,6 +6,7 @@ import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.example.eventsapp.R
 import com.example.eventsapp.databinding.FragmentSplashBinding
@@ -18,6 +19,8 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
         binding = FragmentSplashBinding.bind(view)
 
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
         val textAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.text_appear_animation)
         binding.txtAppName.startAnimation(textAnimation)
 
@@ -27,6 +30,6 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun openHome() {
-        Navigation.findNavController(requireView()).navigate(R.id.homeFragment)
+        view?.let { Navigation.findNavController(it).navigate(R.id.homeFragment) }
     }
 }
