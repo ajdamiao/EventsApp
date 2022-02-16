@@ -27,6 +27,9 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     private var popupInputDialogView: View? = null
     private val util = Util()
     private var eventId = String()
+    private var eventName =  ""
+    private var eventAddress = ""
+    private var eventPrice = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -111,8 +114,13 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
         binding.layoutDetails.visibility = View.VISIBLE
         binding.eventDetailsImage.visibility = View.VISIBLE
 
+        eventName = response.title
+        eventPrice = response.price.toString()
+
         val geocoder = Geocoder(requireContext())
         val addresses = geocoder.getFromLocation(response.latitude, response.longitude, 1)
+
+        eventAddress = addresses[0].getAddressLine(0)
 
         val c = Calendar.getInstance()
         c.timeInMillis = response.date
@@ -120,10 +128,10 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
         val date = "${c[Calendar.DAY_OF_MONTH]}/${c[Calendar.MONTH]}/${c[Calendar.YEAR]} | ${c[Calendar.HOUR_OF_DAY]}:${c[Calendar.MINUTE]}${c[Calendar.SECOND]}"
 
         binding.txtEventDateAndTime.text = date
-        binding.txtEventTitle.text = response.title
+        binding.txtEventTitle.text = eventName
         binding.txtAboutEvent.text = response.description
-        binding.txtEventPrice.text = "${response.price}"
-        binding.txtEventLocation.text = addresses[0].getAddressLine(0)
+        binding.txtEventPrice.text = eventPrice
+        binding.txtEventLocation.text = eventAddress
 
         Glide.with(requireView())
             .load(response.image)
@@ -193,6 +201,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
 
     private fun shareFunction() {
         val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, "Veja só esse evento! $eventName em $eventAddress por $eventPrice")
         sharingIntent.type = "text/plain"
         startActivity(Intent.createChooser(sharingIntent, "Compartilhar Evento"))
     }
