@@ -144,7 +144,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
             MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme)
                 .setTitle("Erro!")
                 .setMessage("Não foi possivel carregar informações do evento.")
-                .setNegativeButton("FECHAR") { dialogInterface, _ ->
+                .setNegativeButton("FECHAR") { _, _ ->
                     Navigation.findNavController(requireView()).popBackStack() }
                 .show()
         }
@@ -179,7 +179,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
             MaterialAlertDialogBuilder(it, R.style.AlertDialogThemeBenefit)
                 .setTitle("Sucesso")
                 .setMessage("Check-in realizado com sucesso.")
-                .setNegativeButton("OK"){ DialogInterface, _ ->
+                .setNegativeButton("OK"){ _, _ ->
                     Navigation.findNavController(requireView())
                         .navigate(R.id.homeFragment)
                 }
