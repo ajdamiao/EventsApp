@@ -96,7 +96,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     }
 
     private fun eventResponse() {
-        eventDetailsViewModel.getEventDetailResponse().observe(viewLifecycleOwner, { response ->
+        eventDetailsViewModel.eventDetailsResponse.observe(viewLifecycleOwner, { response ->
             when(response) {
 
                 is EventDetail -> setupEventInfo(response)
@@ -143,7 +143,7 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     }
 
     private fun checkInResponse() {
-        eventDetailsViewModel.getEventCheckInResponse().observe(viewLifecycleOwner, { response ->
+        eventDetailsViewModel.eventPostResponse.observe(viewLifecycleOwner, { response ->
             when(response) {
                 is Boolean -> {
                     if (response) {
@@ -194,6 +194,6 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
     private fun shareFunction() {
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
-        startActivity(Intent.createChooser(sharingIntent, "Share using"))
+        startActivity(Intent.createChooser(sharingIntent, "Compartilhar Evento"))
     }
 }

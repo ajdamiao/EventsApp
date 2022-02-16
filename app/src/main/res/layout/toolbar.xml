@@ -21,7 +21,5 @@
         android:layout_gravity="start"
         android:text="@string/txt_eventos"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_toolbar"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="18dp" />
+        android:textSize="@dimen/text_toolbar"/>
 </androidx.appcompat.widget.Toolbar>

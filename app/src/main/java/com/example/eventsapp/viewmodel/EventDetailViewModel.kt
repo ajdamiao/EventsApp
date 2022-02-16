@@ -1,5 +1,6 @@
 package com.example.eventsapp.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.eventsapp.data.repository.SicrediRepository
@@ -15,23 +16,17 @@ import java.lang.Exception
 
 class EventDetailViewModel: ViewModel() {
     private val apiRepository = SicrediRepository().makeRequest()
-    private val eventDetailsResponse: MutableLiveData<Any> = MutableLiveData()
-    private val eventPostResponse: MutableLiveData<Any> = MutableLiveData()
-
-    fun getEventDetailResponse() : MutableLiveData<Any> {
-        return eventDetailsResponse
-    }
-
-    fun getEventCheckInResponse(): MutableLiveData<Any> {
-        return eventPostResponse
-    }
+    private val _eventDetailsResponse: MutableLiveData<Any> = MutableLiveData()
+    private val _eventPostResponse: MutableLiveData<Any> = MutableLiveData()
+    val eventDetailsResponse: LiveData<Any> = _eventDetailsResponse
+    val eventPostResponse: LiveData<Any> = _eventPostResponse
 
     fun getEventDetail(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val eventDetail = apiRepository.getEventDetail(id)
 
-                eventDetailsResponse.postValue(eventDetail)
+                _eventDetailsResponse.postValue(eventDetail)
             } catch (exception: Exception)
             {
                 print(exception)
@@ -41,7 +36,7 @@ class EventDetailViewModel: ViewModel() {
                         val gson = Gson()
                         val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
 
-                        eventDetailsResponse.postValue(cException)
+                        _eventDetailsResponse.postValue(cException)
                     }
                 }
             }
@@ -54,7 +49,7 @@ class EventDetailViewModel: ViewModel() {
                 val checkInResponse = apiRepository.checkInEvent(checkIn)
 
                 if(checkInResponse.code() != 200 || checkInResponse.code() != 204) {
-                    eventPostResponse.postValue(checkInResponse.isSuccessful)
+                    _eventPostResponse.postValue(checkInResponse.isSuccessful)
                 }
             } catch (exception: Exception) {
                 when(exception) {
@@ -63,7 +58,7 @@ class EventDetailViewModel: ViewModel() {
                         val gson = Gson()
                         val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
 
-                        eventPostResponse.postValue(cException)
+                        _eventPostResponse.postValue(cException)
                     }
                 }
             }

@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/rview_events_shape"
     app:cardUseCompatPadding="true"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="@dimen/margin_small"
     app:cardPreventCornerOverlap="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,9 +22,9 @@
             android:id="@+id/eventImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,33 +34,35 @@
             android:id="@+id/txtEventName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_small"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/txtEventDate"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/eventImage" />
+            app:layout_constraintTop_toBottomOf="@+id/eventImage"
+            tools:text="Titulo do anuncio" />
 
         <TextView
             android:id="@+id/txtEventPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_default"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txtEventName"
-            app:layout_constraintTop_toBottomOf="@+id/txtEventName" />
+            app:layout_constraintTop_toBottomOf="@+id/txtEventName"
+            tools:text="21/10/2000" />
 
         <TextView
             android:id="@+id/txtEventDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_small"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -72,10 +74,10 @@
             android:id="@+id/constraintLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_small"
             android:background="@drawable/rview_item_shape"
             app:layout_constraintBottom_toBottomOf="@+id/txtEventPrice"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +88,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/txt_detalhes"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -98,6 +100,5 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,8 +36,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun eventsResponse() {
-        homeViewModel.getEventResponse().observe(viewLifecycleOwner, { response ->
+        homeViewModel.eventResponse.observe(viewLifecycleOwner, { response ->
             when(response) {
+
                 is ArrayList<Event> -> {
                     setupCard(response) }
 

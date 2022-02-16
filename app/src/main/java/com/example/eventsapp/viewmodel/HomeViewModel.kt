@@ -1,5 +1,6 @@
 package com.example.eventsapp.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.eventsapp.data.repository.SicrediRepository
@@ -11,11 +12,8 @@ import java.lang.Exception
 
 class HomeViewModel: ViewModel() {
     private val apiRepository = SicrediRepository().makeRequest()
-    private val eventsResponse: MutableLiveData<ArrayList<Event>> = MutableLiveData()
-
-    fun getEventResponse() : MutableLiveData<ArrayList<Event>> {
-        return eventsResponse
-    }
+    private val _eventsResponse: MutableLiveData<ArrayList<Event>> = MutableLiveData()
+    val eventResponse: LiveData<ArrayList<Event>> = _eventsResponse
 
     fun getEvents() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -23,7 +21,7 @@ class HomeViewModel: ViewModel() {
 
                 val events = apiRepository.getEvents()
 
-                eventsResponse.postValue(events)
+                _eventsResponse.postValue(events)
             } catch (exception: Exception) {
                 println(exception)
             }
