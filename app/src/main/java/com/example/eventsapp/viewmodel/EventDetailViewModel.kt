@@ -32,7 +32,7 @@ class EventDetailViewModel: ViewModel() {
                 print(exception)
                 when (exception) {
                     is HttpException -> {
-                        val jsonParsed = JSONObject(exception.response()?.errorBody()!!.string())
+                        val jsonParsed = JSONObject(exception.response()?.errorBody()?.string())
                         val gson = Gson()
                         val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
 
@@ -54,7 +54,7 @@ class EventDetailViewModel: ViewModel() {
             } catch (exception: Exception) {
                 when(exception) {
                     is HttpException -> {
-                        val jsonParsed = JSONObject(exception.response()?.errorBody()!!.toString())
+                        val jsonParsed = JSONObject(exception.response()?.errorBody().toString())
                         val gson = Gson()
                         val cException = gson.fromJson(jsonParsed.toString(), CustomException::class.java)
 

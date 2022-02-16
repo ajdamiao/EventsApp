@@ -19,7 +19,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
         binding = FragmentSplashBinding.bind(view)
 
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+        (activity as AppCompatActivity?)?.supportActionBar?.hide()
 
         val textAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.text_appear_animation)
         binding.txtAppName.startAnimation(textAnimation)
