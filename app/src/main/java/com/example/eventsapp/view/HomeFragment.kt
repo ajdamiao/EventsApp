@@ -28,21 +28,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         main.setToolbarTitle("Eventos")
     }
 
-    private fun setupCard(response: ArrayList<Event>) {
+    private fun setupCard(response: ArrayList<*>) {
         binding.progressBar.visibility = View.GONE
         binding.recyclerView.visibility = View.VISIBLE
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = EventsAdapter(response)
+        binding.recyclerView.adapter = EventsAdapter(response as ArrayList<Event>)
     }
 
     private fun eventsResponse() {
         homeViewModel.eventResponse.observe(viewLifecycleOwner, { response ->
             when(response) {
 
-                is ArrayList<Event> -> {
+                is ArrayList<*> -> {
                     setupCard(response) }
 
-                else -> errorDialog()
+                else -> {
+                    errorDialog()
+                    binding.progressBar.visibility = View.GONE
+                    binding.blankStateLayout.visibility = View.VISIBLE
+                }
             }
         })
     }
@@ -53,7 +57,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 .setTitle("Erro!")
                 .setMessage("Não foi possível carregar os eventos.")
                 .setNegativeButton("FECHAR") { dialogInterface, _ ->
-                    Navigation.findNavController(requireView()).popBackStack() }
+                    dialogInterface.dismiss()}
                 .show()
         }
     }

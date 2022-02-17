@@ -12,8 +12,8 @@ import java.lang.Exception
 
 class HomeViewModel: ViewModel() {
     private val apiRepository = SicrediRepository().makeRequest()
-    private val _eventsResponse: MutableLiveData<ArrayList<Event>> = MutableLiveData()
-    val eventResponse: LiveData<ArrayList<Event>> = _eventsResponse
+    private val _eventsResponse: MutableLiveData<Any> = MutableLiveData()
+    val eventResponse: LiveData<Any> = _eventsResponse
 
     fun getEvents() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -23,7 +23,7 @@ class HomeViewModel: ViewModel() {
 
                 _eventsResponse.postValue(events)
             } catch (exception: Exception) {
-                println(exception)
+                _eventsResponse.postValue(exception)
             }
         }
     }

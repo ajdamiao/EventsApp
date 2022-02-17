@@ -13,4 +13,5 @@
     <string name="txt_eventos">Eventos</string>
     <string name="label_email">Email</string>
     <string name="label_name">Nome</string>
+    <string name="txt_blank_state">Não foi possível carregar a lista de eventos.</string>
 </resources>
